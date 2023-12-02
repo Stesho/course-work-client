@@ -59,6 +59,17 @@ export const NavigationBar = ({ onLinkClick }: NavigationBarProps) => {
             Contacts
           </NavLink>
         </li>
+        <li className={styles.navItem}>
+          <NavLink
+            to='/login'
+            className={(active) =>
+              `${styles.navItem} ${active.isActive && styles.activeLink}`
+            }
+            onClick={onNavLinkClick}
+          >
+            Login
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

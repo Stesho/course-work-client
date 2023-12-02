@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import currencyReducer from './slices/currencySlice';
+import userReducer from './slices/userSlice';
 
 const rootPersistConfig = {
   key: 'root',
@@ -20,6 +21,7 @@ const rootPersistConfig = {
 
 const rootReducer = combineReducers({
   currency: currencyReducer,
+  user: userReducer,
 });
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
