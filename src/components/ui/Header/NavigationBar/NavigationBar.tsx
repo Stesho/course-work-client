@@ -1,5 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+
+import { userSelector } from '@/store/selectors/userSelector';
 
 import styles from './NavigatonBar.module.scss';
 
@@ -8,6 +11,8 @@ interface NavigationBarProps {
 }
 
 export const NavigationBar = ({ onLinkClick }: NavigationBarProps) => {
+  const { user } = useSelector(userSelector);
+
   const onNavLinkClick = () => {
     onLinkClick?.();
   };
@@ -61,13 +66,13 @@ export const NavigationBar = ({ onLinkClick }: NavigationBarProps) => {
         </li>
         <li className={styles.navItem}>
           <NavLink
-            to='/login'
+            to={user ? '/account' : '/login'}
             className={(active) =>
               `${styles.navItem} ${active.isActive && styles.activeLink}`
             }
             onClick={onNavLinkClick}
           >
-            Login
+            {user ? 'Account' : 'Login'}
           </NavLink>
         </li>
       </ul>

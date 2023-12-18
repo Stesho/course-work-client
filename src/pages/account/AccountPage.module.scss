@@ -1,0 +1,51 @@
+.account {
+  display: flex;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 120px);
+}
+
+.menu {
+  width: 350px;
+  padding: 0 20px 0 0;
+  border-right: 1px solid var(--text-color-200);
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  &:hover {
+    background-color: var(--text-color-300);
+  }
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  margin: 0 10px 0 0;
+  path {
+    fill: var(--neutral-color-1);
+  }
+}
+
+.activeLink {
+  background-color: var(--text-color-300);
+  color: var(--primary-color);
+  .icon path {
+    fill: var(--secondary-color);
+  }
+}
+
+.content {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.logoutBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}

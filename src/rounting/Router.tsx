@@ -1,7 +1,9 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import AccountPage from '@/pages/account/AccountPage';
+import { Analysis } from '@/pages/account/analysis/Analysis';
+import { Overview } from '@/pages/account/overview/Overview';
 import { BankCardPage } from '@/pages/bankCard/BankCardPage';
 import ContactsPage from '@/pages/contacts/ContactsPage';
 import { HomePage } from '@/pages/home/HomePage';
@@ -18,7 +20,11 @@ export const Router = () => (
     <Route path='contacts' element={<ContactsPage />} />
     <Route path='login' element={<LoginPage />} />
     <Route path='registration' element={<RegistrationPage />} />
-    <Route path='account' element={<AccountPage />} />
+    <Route path="account" element={<AccountPage />}>
+      <Route index element={<Navigate to='/account/overview' />} />
+      <Route path="/account/overview" element={<Overview />} />
+      <Route path="/account/analysis" element={<Analysis />} />
+    </Route>
     <Route path='*' element={<NotFound />} />
   </Routes>
 );
